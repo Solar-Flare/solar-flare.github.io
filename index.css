@@ -1,0 +1,65 @@
+body {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+table, th, td {
+    border: 2px solid #ccdddd;
+    text-align:center;
+}
+button {
+    background-color: #37dcc4;
+    border: none;
+    color: white;
+    padding: 7px 22px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; 
+}
+
+.sidenav {
+    width: 170px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    background-color: #818181;
+}
+.sidenav a {
+    padding: 4px 8px 4px 25px;
+    text-decoration: none;
+    display: block;
+    color: #616161;
+    font-size:20px;
+}
+
+.sidenav a:hover {
+    color: #c1c1c1;
+}
+
+.main {
+    margin-left: 170px;
+    padding: 0px 10px;
+}
+.main h1 {
+    margin-bottom:-20px;
+}
+
+.paragraph {
+    margin-left: 170px;
+    margin-top: 30px;
+}
+
+.paragraph h2, h5{
+    margin-bottom: -10px;
+}
+.paragraph p {
+    margin-top: 25px;
+}
