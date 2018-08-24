@@ -60,6 +60,9 @@ button {
 .paragraph h2, h5{
     margin-bottom: -10px;
 }
+.paragraph h6{
+    margin-top: 0px;
+}
 .paragraph p {
     margin-top: 25px;
 }
