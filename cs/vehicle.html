@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>A Site on Things</title>
+	    <link href="../style/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+	    <link href="../index.css" rel="stylesheet">
+	    <link rel="icon" href="../style/open-iconic/png/calculator-8x.png">
+	</head>
+	<body>
+		<div class="sidenav">
+			<ul class="nav">
+				<li><a href="../index.html"><span class="oi oi-home" title="home">Home</a></span></li>
+				<li> <a href="../cs.html"><span class="oi oi-code" title="code">CS</span></a></li>
+				<li><a href="../blog.html"><span class="oi oi-dashboard" title="dashboard">Random Things (Blog)</span></a></li>
+				<li><a href="../other_things.html"><span class="oi oi-bolt" title="bolt">Other Things</span></a></li>
+				<li><a href="../about.html"><span class="oi oi-person" title="person">About</span></a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<a href="../cs.html"><button type="button"> Back </button></a>
+			
+		</div>
+		<div class="paragraph">
+			<h2>Braitenberg's Vehicles</h2>
+			<h5>Date: 06/09/2016</h5>
+			</br>
+			<div class="image">
+				<img src="Images/Vehicle.png" alt="Calculator" width="350" height="350">
+			</div>
+			<h6>A mouse controller and the vehicle, with the dot representing the trigger point that drives the vehicle. This is Vehicle 1 of a series of vehicles.</h6>
+			<p>
+				The Braitenberg's Vehicles are a concept of vehicles that are controlled via a sensor. Despite its simplicity, they can sometimes move in beautiful patterns. <br> <br>
+
+				There is a 'heat' generator around the cursor, and the sensors fire if the heat level is high enough (demonstrated via the circle in the image above) This makes the car move in different ways depending on the sensor triggering which wheel of the vehicle (In vehicle 1 or the image above, there is one wheel.)
+				<br> <br>
+				By coding the first three vehicles, 1, 2A, 2B, I've learned about obtaining different results from just the action of tweaking a couple of variables, and the idea of getting results that are not ones that you explicitly programmed. <br> <br>
+				Some challenges that arose while coding: <br>
+				1. Jittery of the vehicles - solved by only calculating x, y can actually be derived from x! <br>
+				2. Vehicle teleportation - solved by setting a center point (x, y) and the angle theta and drawing based off of that instead of individually trying to set the four end points and drawing lines - turns out the function accidentally swapped x and y values at times.
+			</p>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+	</body>
+ </html>
