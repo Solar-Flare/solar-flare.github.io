@@ -1,0 +1,9 @@
+body{
+	background-image: url("Images/background1.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+.thumb {
+	margin: 10px 5px 0 0;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+   <html>
+      <head>
+        <link href="ml5.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>
+        <title>Image Classifier</title>
+        <link rel="icon" href="../style/open-iconic/png/aperture-8x.png">
+      </head>
+      <body>
+        <h6 id="status"> </h6>
+        <h1> Image Classification Using MobileNet</h1>
+         <p> The MobileNet model labeled this as <span id="output">European gallinule, Porphyrio porphyrio</span> with a confidence of <span id="percent">0.7800</span></p>
+         <p>How it works: Insert an image in the choose files... button. Then, click submit, and the MobileNet framework will return the best fit description of the image, like the one above!</p>
+        <div id="test2">
+          <img id="image" class="thumb" src="Images/bird.jpg" width="300px">
+        </div>
+        <input type="file" id="files" name="files"/>
+        <input type="submit" id="submit" value="Submit">
+        <h6>Background image attribution: https://www.publicdomainpictures.net/en/view-image.php?image=142055&picture=background-wallpaper</h6>
+        <h6>Bird image attribution: https://pixabay.com/en/dove-bird-plumage-birds-2186144/</h6>
+         
+        <script>
+          const image = document.getElementById('image');
+          const classifier = ml5.imageClassifier('MobileNet', function (){
+            console.log('Model Loaded');
+          });
+          function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
+
+            // Loop through the FileList and render image files as thumbnails.
+            for (var i = 0, f; f = files[i]; i++) {
+
+              // Only process image files.
+              if (!f.type.match('image.*')) {
+                continue;
+              }
+
+              var reader = new FileReader();
+
+              // Closure to capture the file information.
+              reader.onload = (function(theFile) {
+                return function(e) {
+                  // Render thumbnail.
+                  var span = document.getElementById('test2');
+                  while (span.firstChild) {
+                      span.removeChild(span.firstChild);
+                  }
+                  span.innerHTML = ['<img class="thumb" width="300px" id="image" src="', e.target.result,
+                                    '" title="', escape(theFile.name), '"/> '].join('');
+                  
+                };
+              })(f);
+
+              // Read in the image file as a data URL.
+              reader.readAsDataURL(f);
+            }
+          }
+
+          
+         function predict(){
+            classifier.predict(document.getElementById('image'), function(err, results) {
+            if (err) {
+              console.error(err);
+            }
+            // The results are in an array ordered by probability.
+            document.getElementById('output').innerHTML = results[0].className;
+            document.getElementById('percent').innerHTML = results[0].probability.toFixed(4);
+           });
+          }
+
+          document.getElementById('files').addEventListener('change', handleFileSelect, false);
+          document.getElementById('submit').addEventListener('click', predict, false);
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>A Site on Things</title>
+	    <link href="../style/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+	    <link href="../index.css" rel="stylesheet">
+	    <link rel="icon" href="../style/open-iconic/png/calculator-8x.png">
+	</head>
+	<body>
+		<div class="sidenav">
+			<ul class="nav">
+				<li><a href="../index.html"><span class="oi oi-home" title="home">Home</a></span></li>
+				<li> <a href="../cs.html"><span class="oi oi-code" title="code">CS</span></a></li>
+				<li><a href="../blog.html"><span class="oi oi-dashboard" title="dashboard">Random Things (Blog)</span></a></li>
+				<li><a href="../other_things.html"><span class="oi oi-bolt" title="bolt">Other Things</span></a></li>
+				<li><a href="../about.html"><span class="oi oi-person" title="person">About</span></a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<a href="../cs.html"><button type="button"> Back </button></a>
+			
+		</div>
+		<div class="paragraph">
+			<h2>Image Classifier</h2>
+			<h5>Date: 09/16/2018</h5>
+			</br>
+			<h3><a href=../Other/ml5.html>Link Here</a></h3>
+			<p>
+				There exists very few scripts that come built in with an image classifier. <a href=https://ml5js.org/docs/getting-started.html>ml5js</a> is one of them, and I decided to create a html program that takes an input image, sends it to ml5js, and display the returned values. <br> <br>
+
+				A couple of problems were incurred throughout the process, namely one that caused the image to not be sent to the server. It turns out the id values were incorrect; only after multiple trials did I realize the problem wasn't with the ml5js framework but rather the process of delivering the image to analyze. <br> <br>
+				getElementById looks for id of an html element, not the class name. This was causing the communications error. <br>
+				Besides that, however, no major error was incurred. 
+			</p>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+	</body>
+ </html>
