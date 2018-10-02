@@ -13,19 +13,29 @@
           <video autoplay="true" id="video">
           </video>
         </div>
-        <input type="submit" id="submit" value="Submit">
-        <script>
-          var video = document.querySelector("#video");
-          if (navigator.mediaDevices.getUserMedia) {   
-            navigator.mediaDevices.getUserMedia({video: { facingMode: "user" }})
-            .then(function(mediaStream){
-              video.srcObject = mediaStream;
-            })
-            .catch(function(err)
-            {
-              console.log(err);
-            })
-          }
-        </script>
+        <p>
+          <select>
+            <option value="Yellow">Yellow</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Purple">Purple</option>
+            <option value="White">White</option>
+          </select>
+          <button id="takePhoto">Add Image</button>
+        </p>
+        <p><span id="amountOfYellowImages">0</span> Yellow Images</p>
+        <p><span id="amountOfRedImages">0</span> Red Images</p>
+        <p><span id="amountOfGreenImages">0</span> Green Images</p>
+        <p><span id="amountOfPurpleImages">0</span> Purple Images</p>
+        <p><span id="amountOfWhiteImages">0</span> White Images</p>
+        <button id="train">Train!</button>
+
+        <br/>
+        <br/>
+        <button id="predict">Predict!</button>
+        The model labelled this image as: <span id="result">...</span>
+      </body>
+
+        <script src="video5.js"></script>
     </body>
     </html>
