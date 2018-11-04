@@ -75,3 +75,4 @@ function gotResults(err, result) {
   select('#result').html(result);
   classify();
 }
+document.getElementById('download').addEventListener('click', function() { download("classifier.txt", classifier); }, false);

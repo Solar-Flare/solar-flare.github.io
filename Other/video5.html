@@ -13,11 +13,11 @@
          <h2><span id="modelStatus">Loading base model...</span></h2>
          <h2><span id="videoStatus">Loading video...</span></h2>
          <div style="width: 100%; overflow: hidden;" id="container">
-            <div style="width: 600px; float: left;" id="test2">
+            <div id="test2">
               <video autoplay="true" id="video">
               </video>
             </div>
-            <div style="margin-left: 650px;" id="materials">
+            <div id="materials">
               <p>
                 <select id="sort">
                   <option value="Yellow">Yellow</option>
@@ -42,6 +42,8 @@
               <br>
               <button id="predict">Predict!</button>
               The model labelled this image as: <span id="result">...</span>
+              <br> <br> 
+              <button id="download">Download Classifier</button>
               <br> <br> <br> <br>
           </div>
         </div>
