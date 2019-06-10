@@ -17,6 +17,11 @@ button {
     text-decoration: none;
 }
 
+img {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: -100px;
+}
 .nav {
     list-style-type: none;
     margin: 0;
@@ -33,7 +38,10 @@ button {
     background-color: #818181;
 }
 .sidenav a {
-    padding: 4px 8px 4px 25px;
+    padding-right: 25px;
+    padding-left: 10px;
+    padding-top:5px;
+    padding-bottom: 3px;
     text-decoration: none;
     display: block;
     color: #616161;
