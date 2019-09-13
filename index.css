@@ -1,13 +1,10 @@
 body {
-    background-image: url("background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size:cover;
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
-table, th, td {
-    border: 2px solid #ccdddd;
-    text-align:center;
-}
+
 button {
     background-color: #37dcc4;
     border: none;
@@ -17,60 +14,28 @@ button {
     text-decoration: none;
 }
 
-img {
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: -100px;
-}
-.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; 
-}
-
-.sidenav {
-    width: 170px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    background-color: #818181;
-}
-.sidenav a {
-    padding-right: 25px;
-    padding-left: 10px;
-    padding-top:5px;
-    padding-bottom: 3px;
-    text-decoration: none;
-    display: block;
-    color: #616161;
-    font-size:20px;
-}
-
-.sidenav a:hover {
-    color: #c1c1c1;
-}
+.title {
+  align-content:center;
+  text-align: center;
 
 .main {
-    margin-left: 170px;
-    padding: 0px 10px;
-}
-.main h1 {
-    margin-bottom:-20px;
-}
-
-.paragraph {
-    margin-left: 170px;
-    margin-top: 30px;
+  width: 60%;
+  align-content:center;
+  text-align: center;
+  float:left;
+  border-collapse: collapse;
 }
 
-.paragraph h2, h5{
-    margin-bottom: -10px;
+.other {
+  align-content:center;
+  text-align: center;
+  width: 40%;
+  float: right;
+  border-collapse: collapse;
 }
-.paragraph h6{
-    margin-top: 0px;
-}
-.paragraph p {
-    margin-top: 25px;
+.end {
+  position:fixed;
+  bottom:25px;
+  align-content:center;
+  text-align: center;
 }
