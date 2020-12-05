@@ -1,0 +1,23 @@
+@media (min-height: 700px) {
+  #navbar {
+    width: 25vw;
+    height: 10vw;
+    position: fixed;
+    top: 0;
+  }
+  main {
+    width: 70vw;
+    float: right;
+  }
+}
+#welcome-section {
+  height: 100vh;
+}
+#navbar {
+  position: fixed;
+  top: 0;
+}
+main {
+  float: right;
+  width: 79%;
+}

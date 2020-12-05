@@ -1,0 +1,19 @@
+@media (max-width: 700px) {
+  #navbar {
+    width: 25vw;
+    float: left;
+  }
+  main {
+    width: 70vw;
+    float: right;
+  }
+}
+#navbar {
+    position: fixed;
+    width: 20%;
+    float: left;
+}
+main {
+  float: right;
+  width: 79%;
+}

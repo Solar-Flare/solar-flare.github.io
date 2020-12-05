@@ -1,0 +1,17 @@
+@media (max-width: 600px) {
+  body {
+    background-color: pink;
+  }
+  img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+nav {
+  position: fixed;
+}
+form {
+  display: flex;
+  align-items: center;
+}
