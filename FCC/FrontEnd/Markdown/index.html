@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="test">
+        <textarea id="editor"># Welcome to my React Markdown Previewer!
+
+## This is a sub-heading...
+### And here's some other cool stuff:
+
+Heres some code, `<div></div>`, between 2 backticks. <br>
+
+```
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '```' && lastLine == '```') {
+    return multiLineCode;
+  }
+}
+```
+
+You can also make text bold... whoa!
+Or _italic_.
+Or... wait for it... **_both!_**
+And feel free to go crazy ~~crossing stuff out~~.
+
+There's also [links](https://www.freecodecamp.com), and
+> Block Quotes!
+
+And if you want to get really crazy, even tables:
+
+Wild Header | Crazy Header | Another Header?
+------------ | ------------- | -------------
+Your content can | be here, and it | can be here....
+And here. | Okay. | I think we get it.
+
+- And of course there are lists.
+  - Some are bulleted.
+     - With different indentation levels.
+        - That look like this.
+
+
+1. And there are numbererd lists too.
+1. Use just 1s if you want!
+1. And last but not least, let's not forget embedded images:
+
+![React Logo w/ Text](https://goo.gl/Umyytc)
+
+
+        </textarea>
+      </div>
+      <div id="preview">
+
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.js"></script>
+    <script>
+    $(document).ready(function () {
+      $("#preview").html(marked($("#editor").val()));
+    });
+    $("#editor").on("input", function() {
+      $("#preview").html(marked($("#editor").val()));
+    });
+    </script>
+
+    <!--
+    <script>
+
+      $(document).ready(function() {
+        $("#target1").css("color", "red");
+        $("#target1").prop("disabled", true);
+        $("#target4").remove();
+        $("#target2").appendTo("#right-well");
+        $("#target5").clone().appendTo("#left-well");
+        $("#target1").parent().css("background-color", "red");
+        $("#right-well").children().css("color", "orange");
+        $("#left-well").children().css("color", "green");
+        $(".target:nth-child(2)").addClass("animated bounce");
+        $(".target:even").addClass("animated shake");
+
+      });
+
+    </script>
+    -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

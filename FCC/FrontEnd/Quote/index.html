@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!--
+
+    -->
+    <div id="quote-box">
+      <div id="quote">
+        <div id="text-container">
+          <p id="text">
+
+          </p>
+        </div>
+        <div id="author-container">
+          <p id="author">
+
+          </p>
+        </div>
+      </div>
+        <div id="buttons">
+          <button id="new-quote">New quote</button>
+          <a id="tweet-quote" href="twitter.com/intent/tweet">Tweet</a>
+        </div>
+    </div>
+    <script src="quotes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function () {
+      var quotes = getQuote();
+      $("#text").html(quotes[0]);
+      $("#author").html(quotes[1]);
+    });
+    $("#new-quote").click(function() {
+      var quotes = getQuote();
+      $("#text").html(quotes[0]);
+      $("#author").html(quotes[1]);
+    });
+    $("#quote-box").css()
+    </script>
+
+    <!--
+    <script>
+
+      $(document).ready(function() {
+        $("#target1").css("color", "red");
+        $("#target1").prop("disabled", true);
+        $("#target4").remove();
+        $("#target2").appendTo("#right-well");
+        $("#target5").clone().appendTo("#left-well");
+        $("#target1").parent().css("background-color", "red");
+        $("#right-well").children().css("color", "orange");
+        $("#left-well").children().css("color", "green");
+        $(".target:nth-child(2)").addClass("animated bounce");
+        $(".target:even").addClass("animated shake");
+
+      });
+
+    </script>
+    -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

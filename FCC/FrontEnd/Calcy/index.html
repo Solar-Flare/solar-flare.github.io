@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div style="height: 150px;">
+
+    </div>
+    <div id="calcy">
+      <div id="display">
+        0
+      </div>
+      <div id="numbers">
+        <div class="numRow">
+            <button class="numButton" id="seven">7</button>
+            <button class="numButton" id="eight">8</button>
+            <button class="numButton" id="nine">9</button>
+        </div>
+        <div class="numRow">
+            <button class="numButton" id="four">4</button>
+            <button class="numButton" id="five">5</button>
+            <button class="numButton" id="six">6</button>
+        </div>
+        <div class="numRow">
+            <button class="numButton" id="one">1</button>
+            <button class="numButton" id="two">2</button>
+            <button class="numButton" id="three">3</button>
+        </div>
+        <div class="numRow">
+            <button class="numButton" id="zero">0</button>
+            <button class="numButton" id="decimal">.</button>
+            <button id="equals">=</button>
+        </div>
+      </div>
+      <div id="symbols">
+        <button class="opButton" id="add">+</button>
+        <button class="opButton" id="subtract">-</button>
+        <button class="opButton" id="multiply">*</button>
+        <button class="opButton" id="divide">/</button>
+      </div>
+      <div id="potato">
+        <button id="clear">AC</button>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="math.js"></script>
+    <script>
+      var displayValue = 0;
+      var internalString = "0";
+      var conditional = [];
+      $("#clear").click(function() {
+        displayValue = 0;
+        internalString = "0";
+        conditional = [];
+        $("#display").html(displayValue);
+      });
+      $(".numButton").click(function (e) {
+        internalString = append(internalString, $(e.target).text());
+        console.log(internalString);
+        displayValue = parseFloat(internalString);
+        $("#display").html(internalString);
+      });
+      $(".opButton").click(function (e) {
+        if (displayValue == null && $(e.target).text() == "-") {
+          internalString = "-";
+          displayValue = "-";
+        } else if (displayValue == "-" ) {
+          if ($(e.target).text() != "-") {
+            conditional = appendToArray(conditional, $(e.target).text());
+            internalString = "";
+            displayValue = null;
+          }
+        }
+        else if (displayValue != null) {
+          conditional = appendToArray(conditional, displayValue);
+          conditional = appendToArray(conditional, $(e.target).text());
+          internalString = "";
+          displayValue = null;
+        }
+        else {
+          conditional = appendToArray(conditional, $(e.target).text());
+          internalString = "";
+          displayValue = null;
+        }
+
+
+        console.log(conditional);
+      });
+      $("#equals").click(function(e) {
+
+        conditional = appendToArray(conditional, displayValue);
+        displayValue = arrayOperation(conditional);
+        internalString = "0";
+        console.log(displayValue);
+        $("#display").html(displayValue);
+        conditional = [];
+      });
+
+
+    </script>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
