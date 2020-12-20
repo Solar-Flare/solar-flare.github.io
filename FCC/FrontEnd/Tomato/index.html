@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="timers">
+        <div id="break">
+
+          <div id="break-label">
+            Break Length: <span id="break-length">5</span>
+          </div>
+          <div id="break-buttons">
+            <button id="break-decrement">-</button>
+            <button id="break-increment">+</button>
+          </div>
+        </div>
+        <div id="session">
+
+          <div id="session-label">
+            Session Length: <span id="session-length">25</span>
+          </div>
+          <div id="session-buttons">
+            <button id="session-decrement">-</button>
+            <button id="session-increment">+</button>
+          </div>
+        </div>
+      </div>
+      <div id="settings">
+        <p id="timer-label">
+          Session
+        </p>
+        <p id="time-left">25:00
+        </p>
+        <div id="time-buttons">
+          <button id="start_stop">Start/Stop</button>
+          <button id="reset">Reset</button>
+          <audio id="beep" >
+            <source src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" type="audio/wav"  />
+          </audio>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="math.js"></script>
+    <script>
+    console.log(display(1504));
+      $("#container").css({"height":"100%", "width":"50%", "border": "1px solid blue"});
+      $("#timers").css({"text-align": "center", "width":"100%", "height":"100%"});
+      $("#break, #session").css({"text-align":"center", "float":"left", "width":"49%", "height":"100%"});
+      $("#session-buttons, #break-buttons").css({"margin":"auto","width": "50%"});
+      $("#settings").css({"text-align":"center"});
+      var defaultSettings = [5,25];
+      var time = 1500;
+      var timeDisplay = ["25", "00"];
+      var breakTime = 5;
+      var sessionTime = 25;
+      var running = false;
+
+      $("#reset").click(function () {
+        $("#beep")[0].load()
+        console.log(time);
+        running = false;
+        breakTime = defaultSettings[0];
+        sessionTime = defaultSettings[1];
+        time = 1500;
+        timeDisplay = display(time);
+        $("#time-left").html(timeDisplay);
+        $("#timer-label").html("Session");
+        $("#break-length").html(breakTime);
+        $("#session-length").html(sessionTime);
+        state = "session";
+        clearInterval(y);
+      });
+
+      $("#break-decrement").click(function() {
+        running = false;
+        breakTime = decrement(breakTime);
+        $("#break-length").html(breakTime);
+      });
+      $("#break-increment").click(function() {
+        running = false;
+        breakTime = increment(breakTime);
+        $("#break-length").html(breakTime);
+      });
+
+      $("#session-decrement").click(function() {
+        running = false;
+        sessionTime = decrement(sessionTime);
+        $("#session-length").html(sessionTime);
+        time = sessionTime*60;
+        timeDisplay = display(time);
+        $("#time-left").html(timeDisplay);
+      });
+      $("#session-increment").click(function() {
+        running = false;
+        sessionTime = increment(sessionTime);
+        $("#session-length").html(sessionTime);
+        time = sessionTime*60;
+        timeDisplay = display(time);
+        $("#time-left").html(timeDisplay);
+      });
+      var state = "session";
+      function x() {
+        time -= 1;
+        if (time == -1) {
+          $("#beep")[0].play();
+          if (state == "session") {
+            state = "break";
+            time = breakTime * 60;
+            $("#timer-label").html("Break");
+          } else {
+            state = "session";
+            time = sessionTime * 60;
+            $("#timer-label").html("Session");
+          }
+        }
+        timeDisplay = display(time);
+        $("#time-left").html(timeDisplay);
+
+      }
+      var y;
+      $("#start_stop").click(function() {
+        running = !running;
+        console.log(running);
+        if (running) {
+          y = setInterval(x, 50);
+        } else {
+          console.log("meow");
+          clearInterval(y);
+        }
+      });
+    </script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
