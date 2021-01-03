@@ -1,0 +1,11 @@
+.d3-tip {
+  padding: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 5px;
+}
+
+svg {
+  padding-top: 50px;
+  padding-left: 100px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="title">Video Game Sales</div>
+      <div id="description">
+        Top 100 Video Games Sold, Grouped by Platform
+      </div>
+      <svg class="chart"></svg>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="math.js"></script>
+    <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+    <script>
+      const dataUrl = "https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/video-game-sales-data.json";
+      d3.json(dataUrl).then(function(data) {potato(data);});
+
+      function potato(data) {
+        console.log(data);
+        const hierarchy = d3.hierarchy(data)
+                            .sum(d=>d.value)
+                            .sort((a,b) => b.value - a.value);
+        const treemap = d3.treemap().size([500,500]).padding(2);
+        const map = treemap(hierarchy);
+
+        const svg = d3.select(".chart").attr("width", 1200).attr("height", 800);
+        var cell = svg
+           .selectAll('g')
+           .data(map.leaves())
+           .enter()
+           .append('g')
+           .attr('class', 'group').attr('transform', function (d) {
+      return 'translate(' + d.x0 + ',' + d.y0 + ')'});
+        var color = [];
+        for (var i = 0; i < 18; i++) {
+          color.push(colors(i));
+        }
+        const categories = data.children.map(d=>d.name);
+        const colorScale = d3.scaleOrdinal()
+                     .domain(categories)
+                     .range(color)
+
+        cell.append("rect").attr('id', function (d) { return d.data.id;})
+        .attr("class","tile")
+        .attr("width",  d=>d.x1 - d.x0)
+        .attr("height", d=>d.y1 - d.y0).attr("value", d=>(d.data.value))
+        .attr('data-name', function (d) {
+           return d.data.name;
+         })
+         .attr('data-category', function (d) {
+           return d.data.category;
+         })
+         .attr('data-value', function (d) {
+           return d.data.value;
+         }).style("fill", function(d,i) {
+           return colorScale(d.data.category);
+         });
+        console.log(map.leaves());
+        console.log(categories);
+        const tip = d3.tip()
+        .offset([0,10]).attr("class", "d3-tip")
+        .attr("id", "tooltip")
+        .html(function(EVENT,d) {
+          return d.data.name + " <br>Value:" + d.data.value;
+        });
+        svg.call(tip);
+        svg.selectAll("rect").on("mouseover.tip", tip.show)
+        .on("mouseout.tip", tip.hide);
+
+
+        cell
+        .append('text')
+        .attr('class', 'tile-text')
+        .selectAll('tspan')
+        .data(function (d) {
+          return d.data.name.split(/(?=[A-Z][^A-Z])/g);
+        })
+        .enter()
+        .append('tspan')
+        .attr("x", "3px")
+        .attr("dy", "1em")
+        .text(function (d) {
+          return d;
+        })
+        .style("font-size", "7px");
+
+
+
+        const legend = svg.append("g").attr("id", "legend");
+        legend.selectAll("rect")
+        .data(categories).enter().append("rect")
+        .attr("class", "legend-item")
+        .attr("x", (d,i) => 500 + loadCoordinates(i)[0])
+        .attr("y", (d,i) => 50 + loadCoordinates(i)[1])
+        .attr("width", 20).attr("height", 20)
+        .style("fill", (d,i) => colorScale(d));
+
+        legend.selectAll("text")
+        .data(categories).enter().append("text").attr("x", (d,i) => 525 + loadCoordinates(i)[0])
+        .attr("y", (d,i) => 60 + loadCoordinates(i)[1]).text(d=>d).style("font-size", "6px");
+        console.log(categories);
+      }
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- https://codepen.io/NicholasAsimov/pen/bpjmYK -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="container">
+    <h2 id="title">
+      Cyclists
+    </h2>
+    <svg class="chart"></svg>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="math.js"></script>
+  <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+  <script>
+  const dataUrl = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json";
+  dataSet = d3.json(dataUrl).then(function(data){ potato(data)});
+
+  function potato(dataSet) {
+    const margins = {
+      top: 10,
+      bottom: 10,
+      left: 30,
+      right: 10
+    };
+    const width = 1000 - margins.left - margins.right;
+    const height = 600 - margins.top - margins.bottom;
+    console.log("meow");
+    console.log(dataSet);
+    const minYear = d3.min(dataSet, (d) => d.Year);
+    const maxYear = d3.max(dataSet, (d) => d.Year);
+    console.log(minYear);
+    console.log(maxYear);
+    const minTime = d3.min(dataSet, (d) => d.Seconds);
+    const maxTime = d3.max(dataSet, (d) => d.Seconds);
+    console.log(minTime);
+    console.log(maxTime);
+    const xScale = d3.scaleLinear()
+      .domain([minYear - 1, maxYear + 1])
+      .range([margins.left, width - margins.right]);
+    const yScale = d3.scaleLinear()
+      .domain([minTime - 5, maxTime + 5])
+      .range([margins.top, height - margins.bottom]);
+    const svg = d3.select('.chart')
+    .attr("width", width + margins.left + margins.right)
+    .attr("height", height + margins.top + margins.bottom)
+    .append('g').attr('transform', `translate(${margins.left}, ${margins.top})`);
+    var tip = d3.tip().attr("id", "tooltip")
+    .attr("data-year", (EVENT,d) => d.Year).attr('class', 'd3-tip').offset([-10,0])
+    .html((EVENT,d) => d.Name + " " + d.Year + "<br>" + d.Time + "<br>");
+    svg.call(tip)
+    svg.selectAll("circle")
+    .data(dataSet).enter()
+    .append("circle")
+    .attr("class", "dot")
+    .attr("data-xvalue", (d,i) => d.Year)
+    .attr("data-yvalue", (d,i) => d.Seconds)
+    .attr("cx", (d,i) => xScale(d.Year))
+    .attr("cy", (d,i) => yScale(d.Seconds))
+    .attr("r", 5)
+    svg.selectAll('circle')
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide);
+    svg.selectAll("circle")
+    .style("fill", function(d) {
+      if (d.Doping == "") { return "orange"; }
+      return "blue";
+    })
+    .style("stroke", "black");
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+    xAxis.tickFormat((d,i) => d);
+    yAxis.ticks(12).tickFormat((d,i) => display(d));
+    svg.append("g")
+      .attr("id", "x-axis")
+      .attr("transform", "translate(0, " + (height - margins.bottom) + ")")
+      .call(xAxis);
+    svg.append("g")
+      .attr("id", "y-axis")
+      .attr("transform", "translate(" + (margins.left) + ",0)")
+      .call(yAxis);
+
+    svg.append("rect").attr("id","legend").attr("x", 700).attr("y", 110).attr("width", 260).attr("height",70)
+    .style("fill", "white").style("stroke", "black");
+    svg.append("circle").attr("cx",750).attr("cy",130).attr("r", 6).style("fill", "orange")
+    svg.append("circle").attr("cx", 750).attr("cy",160).attr("r", 6).style("fill", "blue")
+    svg.append("text").attr("x", 810).attr("y", 130).text("No Doping Allegations").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 810).attr("y", 160).text("Has Doping Allegations").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
+
+
+  }
+  </script>
+  <style></style>
+</body>
+
+</html>
