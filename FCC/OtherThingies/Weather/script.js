@@ -56,6 +56,7 @@ function processData(data) {
 }
 
 function displayData() {
+  // Blits the data obtained from processData to the HTML file
   document.getElementById("location").innerHTML = loc;
   document.getElementById("temp").innerHTML = temperatures[0];
   document.getElementById("weather").innerHTML = weather;
@@ -65,6 +66,7 @@ function displayData() {
 
 
 function tempSwitch() {
+  // Switches between Celsius and Farenheit. Also blits data to HTML
   if (currentTempDisplay == "C") {
     document.getElementById("tempScale").innerHTML = "F";
     document.getElementById("temp").innerHTML = temperatures[1];
@@ -77,12 +79,13 @@ function tempSwitch() {
 }
 
 function convertCtoF() {
+  // Calculates Farenheit from Celsius
   var c = temperatures[0]
   temperatures[1] = parseInt(c * 9 / 5 + 32)
 }
 
-// Get User Geolocation Data
 
+// Get User Geolocation Data
 if (window.navigator.geolocation) {
   window.navigator.geolocation.getCurrentPosition(onGeoSuccess, console.log);
 

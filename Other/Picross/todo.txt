@@ -1,0 +1,15 @@
+TODO:
+- Done!
+
+COMPLETED:
+- CND/RND lines every 5
+- Reduce 'Border CND/RND' sizes
+- Mistakes goes Red if >0
+- Dark Mode
+- Save Previous Settings (Grid Size, Dark Mode)
+- Comment the thingies
+- Save previous progress (Grid, tiles)
+- Complete screen on completion
+- Grey out numbers on click
+- Save previous greyed numbers
+- Instructions

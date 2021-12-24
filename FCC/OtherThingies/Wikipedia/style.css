@@ -1,0 +1,58 @@
+html, body {
+  width: 80%;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+#search {
+  display: block;
+  text-align: center;
+}
+
+#searchResults {
+  display: none;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.displayElement {
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  width: 500px;
+  display: block;
+
+}
+
+
+
+.displayElement:hover {
+  background-color: lightblue;
+}
+.clickableDisplayElement {
+  padding-left: 15px;
+  padding-right: 5px;
+
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 500px;
+  text-decoration:none;
+  display: block;
+}
+
+#backDisplayElement {
+  padding-left: 0px;
+  padding-right: 0px;
+  color: hotpink;
+  text-align: center;
+  width: 80px;
+}
+
+#clickablebBackDisplayElement {
+  width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+}

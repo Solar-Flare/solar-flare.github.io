@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body oncontextmenu="return false;">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div id="main" class="unselectable">
+      <div id="leftboard">
+        Picross (Nonogram)! <br>
+        <div id="mistake_indicator">
+          Mistakes: <span id="mistakes">0</span>
+        </div>
+        <div id="display" hidden><span id="complete" hidden>Complete!</span><span id="perfect" hidden>Perfect!</span></div> <br />
+        <div id="game_creation">
+          Custom Size: <br />
+          (Between 5 and 30)
+          <input id="size" type="text" placeholder="Size: 15" size="10" /> <br /> <br />
+          <button onclick="new_game()">New Game >></button> <br /> <br /> <br />
+          <input type="checkbox" id="darkbox" name="darkbox" value="Dark">
+          <label for="darkbox">Dark Mode</label><br>
+
+        </div>
+
+      </div>
+    </div>
+    <div id="instructions">
+      <p>The above is a randomly generated <a href="https://en.wikipedia.org/wiki/Nonogram">picross (nonogram) puzzle</a>. <br />
+        Left click to reveal, right click to mark empty. Hold either click to reveal/empty in a straight line. <br />
+        You can also click on the numbers to grey them out. <br />
+        Have fun~
+
+      </p>
+    </div>
+
+    <script src="functions.js"></script>
+    <script src="save.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

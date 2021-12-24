@@ -1,0 +1,201 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  min-width: 2000px;
+  font-family: sans-serif, serif;
+
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main {
+  height: max-content;
+  display: inline-block;
+}
+
+#instructions {
+  height: 300px;
+  width: 700px;
+  text-align: center;
+}
+#leftboard {
+  width: 150px;
+  height: 250px;
+  border: 3px solid;
+  border-color: cyan;
+  display: inline-block;
+  vertical-align:top;
+}
+
+.grid {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.tile {
+  text-align: center;
+  background-color: white;
+  border: 1px solid;
+  vertical-align: middle;
+}
+
+.tile:hover {
+  background-color: yellow;
+}
+
+.tile-large {
+  width: 30px;
+  height: 30px;
+}
+
+.tile-medium {
+  font-size: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+.tile-small {
+  font-size: 10px;
+  width: 14px;
+  height: 14px;
+}
+
+
+
+.tile-n {
+  border-color: Silver;
+}
+
+.tile-r {
+  border-color: Silver black Silver Silver;
+}
+
+.tile-s {
+  border-color: Silver Silver black Silver;
+}
+
+.tile-sr {
+  border-color: Silver black black Silver;
+}
+
+.tile-l {
+  border-color: Silver Silver Silver black;
+}
+
+.tile-b {
+  border-color: black Silver Silver Silver;
+}
+
+.tile-bl {
+  border-color: black Silver Silver black;
+}
+
+.tile-sl {
+  border-color: Silver Silver black black;
+}
+
+.tile-br {
+  border-color: black black Silver Silver;
+}
+
+.s-tile-1 {
+  background-color: aqua;
+}
+.s-tile-1:hover {
+  background-color: lightblue;
+}
+
+.s-tile-0 {
+  background-color: silver;
+}
+.s-tile-0:hover {
+  background-color: lightgrey;
+}
+
+
+.s-tile {
+  color: red;
+  text-align: center;
+}
+
+.RowNumDisplay {
+  border: 1px solid;
+  border-color: white;
+}
+
+.ColNumDisplay {
+  border: 1px solid;
+  border-color: white;
+}
+
+
+.RND-5 {
+  border-color: white white darkgrey white;
+}
+.RND-0 {
+  border-color: darkgrey white white white;
+}
+
+.CND-5 {
+  border-color: white darkgrey white white;
+}
+
+.CND-0 {
+  border-color: white white white darkgrey;
+}
+
+
+.RND-large {
+  font-size: 16px;
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 4px;
+}
+
+.CND-large {
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+.RND-medium {
+  font-size: 14px;
+  text-align: right;
+  padding-top: 2px;
+  padding-right: 4px;
+}
+
+.CND-medium {
+  font-size: 14px;
+  text-align: center;
+}
+
+.RND-small {
+  font-size: 11px;
+  text-align: right;
+  padding-top: 2px;
+}
+
+.CND-small {
+  font-size: 11px;
+  text-align: center;
+}
+
+#perfect {
+  background-image: -webkit-linear-gradient(left, #f00, #ff2b00, #f50, #ff8000, #fa0, #ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0, #00ff2a, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d5ff, #0af, #0080ff, #05f, #002aff, #00f, #2b00ff, #50f, #8000ff, #a0f, #d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: #0000;
+	background-clip: text;
+}
+
+.clicked_number {
+  color: #C0C0C0;
+}
